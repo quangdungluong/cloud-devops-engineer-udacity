@@ -1,0 +1,28 @@
+Parameters:
+  S3BucketName:
+    Description: The name of S3 bucket that will be store the index.html file
+    Type: String
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref S3BucketName
+      AccessControl: Private
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
+
+Outputs:
+  S3BucketArn:
+    Description: Reference to S3 bucket 
+    Value: !GetAtt S3Bucket.Arn
+    Export:
+      Name: "S3BucketArn" 

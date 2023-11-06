@@ -26,6 +26,8 @@ index.html - The Index document for the website.
 ## Step 5. Distribute website via CloudFront
 ![CloudFront](./results/distribute-website-via-cloudfront.png)
 
+![CloudFrontEnabled](./results/cloud-front-enabled.png)
+
 ## Step 6. Access Website in Web Browser
 ![Access Website](./results/access-website.png)
 
